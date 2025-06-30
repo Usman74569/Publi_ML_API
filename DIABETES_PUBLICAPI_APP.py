@@ -46,3 +46,8 @@ def predict_diabetes(data: DiabetesFeatures):
     input_scaled = scaler.transform(input_data)
     prediction = model.predict(input_scaled)
     return {"prediction": "Diabetic" if prediction[0] == 1 else "Non-Diabetic"}
+
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to the Diabetes Prediction API. Go to /docs for Swagger UI."}
+
